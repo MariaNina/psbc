@@ -1,0 +1,82 @@
+// Login Styling
+.login {
+    .form-control {
+        display: block !important;
+        width: 100% !important;
+        height: 1.2rem !important;
+        padding: 1.35rem 0.75rem !important;
+        font-size: 0.8rem !important;
+        font-weight: 400 !important;
+        line-height: 1.5 !important;
+        color: #6e707e !important;
+        background-color: #fff !important;
+        background-clip: padding-box !important;        
+        border-radius: 10rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+    }
+}
+
+.bg-login-image {
+    background: url($login-image);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.bg-login-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 600px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.login-inner {
+    padding: 200px 25px 0px 25px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.bg-register-image {
+    background: url($register-image);
+    background-position: center;
+    background-size: cover;
+}
+
+.bg-password-image {
+    background: url($password-image);
+    background-position: center;
+    background-size: cover;
+}
+
+form.user {
+    .custom-checkbox.small {
+        label {
+            line-height: 1.5rem;
+        }
+    }
+
+    .form-control-user {
+        font-size: 0.8rem;
+        border-radius: 10rem;
+        padding: 1.5rem 1rem;
+    }
+
+    .btn-user {
+        font-size: 0.8rem;
+        border-radius: 10rem;
+        padding: 0.75rem 1rem;
+    }
+}
+
+.btn-google {
+    @include button-variant($brand-google, $white);
+}
+
+.btn-facebook {
+    @include button-variant($brand-facebook, $white);
+}

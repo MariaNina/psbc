@@ -1,0 +1,29 @@
+// Import Variables (Overrides Default Bootstrap Variables)
+@import "variables.scss";
+
+// Import Bootstrap
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+// Import Custom Mixins and Components
+@import "mixins.scss";
+@import "global.scss";
+@import "utilities.scss";
+
+// Custom Components
+@import "dropdowns.scss";
+@import "table.scss";
+@import "forms.scss";
+@import "navs.scss";
+@import "buttons.scss";
+@import "cards.scss";
+@import "multi_step_form.scss";
+@import "charts.scss";
+@import "login.scss";
+@import "campus.scss";
+@import "our_programs.scss";
+@import "profile.scss";
+@import "scrollbar.scss";
+@import "modal.scss";
+//@import "error.scss";
+@import "footer.scss";
+

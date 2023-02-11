@@ -1,0 +1,96 @@
+input.form-control {
+    display: block;
+    width: 100%;
+    font-size: 0.8rem !important;
+    padding: 0.8rem 1rem !important;
+    border-radius: 0.25rem;
+}
+
+label {
+    color: $grayish;
+    font-size: 0.75rem !important;
+}
+
+.form-control:focus {
+    color: $grayish;
+    background-color: #fff;
+    border-color: $primary;
+    outline: 0;
+    // box-shadow: 0 0 0 0rem rgba(0, 123, 255, .25)
+    box-shadow: 0 0 0 0rem $primary;
+}
+
+.form-control-textarea {
+    font-size: 0.8rem !important;
+    padding: 0.8rem 1rem;
+}
+
+// CkEditor wysiwyg plugin placeholder
+form > div:nth-child(4) > div > div.ck.ck-editor__main > div > .ck-placeholder {
+    font-size: 0.8rem !important;
+}
+
+// Ckeditor text size
+form > div:nth-child(4) > div > div.ck.ck-editor__main > div > p {
+    font-size: 0.8rem !important;
+}
+
+.ck-editor__editable > p {
+    font-size: 0.8rem !important;
+}
+
+// Ckeditor editing area
+.ck-editor__editable_inline {
+    min-height: 100px;
+    border-color: $gray-400 !important;
+}
+
+.ck-editor__editable_inline:focus {
+    color: $grayish !important;
+    background-color: #fff !important;
+    border-color: $primary !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0rem $primary !important;
+}
+
+/* Adding Links on CKEDITOR on MODAL to Work */
+.ck.ck-balloon-panel {
+    z-index: 1050 !important;
+}
+
+// Bug fix for not showing add link in ckeditor inside modal
+.modal {
+    .ck, .ck-labeled-field-view__input-wrapper {
+        z-index: 2000 !important;
+
+    }
+}
+
+.form-control-file {
+    font-size: 0.8rem !important;
+    display: flex;
+    align-self: flex-start;
+    align-items: center;
+}
+
+.form-control-rounded {
+    font-size: 0.8rem;
+    border-radius: 10rem;
+    padding: 1.1rem 1rem;
+}
+
+.error {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+.form-control-file .error {
+    z-index: 2000;
+}
+
+
+div.modal-header > button {
+    outline: none;
+}

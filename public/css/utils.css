@@ -1,0 +1,156 @@
+/*
+ * @desc Utility Classes 
+ * @author Robert Miras
+ */
+
+:root {
+    --orange: rgb(255, 127, 1);
+    --orange-hover: rgba(255, 127, 1, 0.8);
+    --yellow: #fcef09;
+    --logo-orange: #fe7e00;
+    --yellow-darker: #e3d802;
+    --secondary: rgb(249, 249, 108);
+    --mid-color: rgba(50, 146, 166, 0.8);
+    --mid-color-opacity: rgba(50, 146, 166, 0.2);
+}
+
+/* TEXT */
+.text-orange {
+    color: var(--orange);
+}
+
+.text-yellow {
+    color: var(--yellow);
+}
+
+.text-uppercase {
+    letter-spacing: 0.1em;
+}
+.text-gray {
+    color: #aaa !important;
+}
+
+/* BACKGROUNDS */
+.bg-gray {
+    background: #ececf6;
+}
+
+.bg-orange {
+    background: var(--orange);
+}
+
+.bg-orange:hover {
+    background: var(--orange-hover);
+    color: #fff;
+}
+
+.bg-orange {
+    background: var(--orange);
+}
+
+.bg-black {
+    background:  #111 !important;
+}
+
+.bg-yellow {
+    background: var(--yellow) !important;
+}
+
+.bg-yellow-darker {
+    background: var(--yellow-darker) !important;
+}
+
+/* BUTTONS */
+.btn-orange {
+    background: var(--orange);
+    color: #fff;
+    border: 0;
+}
+
+.btn-orange:hover {
+    background: var(--orange-hover) !important;
+    color: #fff;
+}
+
+
+/* FONTS */
+.font-xs {
+    font-size: 0.7rem;
+}
+
+.font-sm {
+    font-size: 0.875rem;
+}
+
+.font-1 {
+    font-size: 1rem;
+}
+
+.font-18px {
+    font-size: 18px;
+}
+
+.font-2 {
+    font-size: 1.5rem;
+}
+.font-3 {
+    font-size: 2rem;
+}
+.font-4 {
+    font-size: 2.5rem;
+}
+.font-5 {
+    font-size: 3rem;
+}
+
+/* FONT WEIGHT */
+.fw-100 {
+    font-weight: 100;
+}
+.fw-200 {
+    font-weight: 200;
+}
+.fw-300 {
+    font-weight: 300;
+}
+.fw-400 {
+    font-weight: 400;
+}
+.fw-500 {
+    font-weight: 500;
+}
+.fw-600 {
+    font-weight: 600;
+}
+.fw-700 {
+    font-weight: 700;
+}
+
+/* BORDER RADIUS */
+.border-radius-1 {
+    border-radius: 5px;
+}
+.border-radius-2 {
+    border-radius: 10px;
+}
+.border-radius-3 {
+    border-radius: 15px;
+}
+.border-radius-4 {
+    border-radius: 20px;
+}
+.border-radius-5 {
+    border-radius: 30px;
+}
+
+.border-radius-50 {
+    border-radius: 50%;
+}
+
+.border-radius-75 {
+    border-radius: 75%;
+}
+
+.border-radius-100 {
+    border-radius: 100%;
+}

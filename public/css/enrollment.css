@@ -1,0 +1,298 @@
+:root {
+    --elem: #f9d859;
+}
+
+* {
+    font-family: "Times New Roman", Times, "Arial", serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.top-header {
+    position: relative;
+    text-transform: uppercase;
+}
+
+.elem-form-title {
+    /* text-transform: uppercase;
+    margin-left: 25%;
+    font-size: 1.2rem !important; */
+    position: absolute;
+    top: 30%;
+    left: 27%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 1.2rem !important;
+    font-weight: 600;
+}
+
+.shs-form-title {
+    /* text-transform: uppercase;
+    margin-left: 25%;
+    font-size: 1.2rem !important; */
+    font-size: 1.1rem !important;
+    font-weight: 600;
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.title {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header-title {
+    font-size: 2rem;
+    position: relative;
+}
+
+.location {
+    font-size: 1rem;
+    text-transform: uppercase;
+    position: absolute;
+    top: 100%;
+    left: 40%;
+}
+
+/* TABLE */
+table.basic-table {
+    width: 100%;
+}
+
+table.basic-table thead tr > th {
+    text-align: center;
+}
+
+table.basic-table,
+.basic-table th,
+.basic-table td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table.basic-table .cell-center {
+    text-align: center;
+    padding: 0;
+}
+
+table.basic-table tbody tr > td {
+    padding-left: 10px;
+}
+
+/* TEXT UTILITIES */
+.underline {
+    text-decoration: underline;
+}
+
+/* WIDTH */
+.min-w-100px {
+    min-width: 100px;
+}
+
+.min-w-50px {
+    min-width: 50px;
+}
+
+.min-w-25px {
+    min-width: 25px;
+}
+
+.underline-bottom {
+    border-bottom: 1px solid black;
+    width: 100%;
+    height: 100%;
+}
+
+.underline-top {
+    border-top: 1px solid black;
+    width: 100%;
+    height: 100%;
+}
+
+.signatures p {
+    font-size: 0.8rem;
+}
+
+.signature-line {
+    text-align: center;
+    border-top: 1px solid black;
+    width: 25%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.text-start {
+    text-align: left;
+}
+
+.text-end {
+    text-align: right;
+}
+
+.line-h {
+    line-height: 1.8;
+}
+
+.test-table {
+    width: 100% !important;
+}
+
+.list-style-none {
+    list-style: none;
+}
+
+/* rules */
+.rules-list {
+    font-size: 1rem;
+}
+
+.page-br {
+    margin-top: 0px; /* 40px */
+    border-bottom: 1px dashed black;
+    width: 100%;
+    height: 100%;
+}
+
+#student-name {
+    position: relative;
+}
+
+#family-name {
+    position: relative;
+}
+
+#first-name {
+    position: relative;
+}
+
+#middle-initial {
+    position: relative;
+}
+
+ul#sub-rules > li {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.family-name-hint {
+    position: absolute;
+    margin-top: 5px !important;
+    top: 100%;
+    left: 0%;
+    font-size: 0.6rem;
+}
+
+.first-name-hint {
+    position: absolute;
+    margin-top: 5px !important;
+    top: 100%;
+    left: 40%;
+    font-size: 0.6rem;
+}
+
+.middle-initial-hint {
+    position: absolute;
+    margin-top: 5px !important;
+    top: 100%;
+    left: 80%;
+    font-size: 0.6rem;
+}
+
+.consent p {
+    font-size: 1.1rem;
+}
+
+.form-wrapper h5 {
+    font-size: 1.1rem;
+}
+
+.form-wrapper h4 {
+    margin: 0;
+}
+
+.enrollment-form h4,
+h5,
+span {
+    margin: 0;
+}
+
+#requirements h5 {
+    font-size: 0.9rem;
+}
+
+#requirements li {
+    font-size: 0.95rem;
+}
+
+#college_of {
+    position: relative;
+}
+
+#college_of_row {
+    position: relative;
+}
+
+#new {
+    position: absolute;
+    top: -16px;
+    right: 40%;
+
+}
+
+#new_txt {
+    position: absolute;
+    margin-top: 17px;
+    left: 1px;
+    font-size: 1rem;
+}
+
+#old {
+    position: absolute;
+    top: -15px;
+    right: 20%;
+
+}
+
+#old_txt {
+    position: absolute;
+    right: 27%;
+}
+
+/* Table Column */
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 200px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+/* FORM COLORS */
+/* .elemform {
+    background: var(--elem);
+  }
+  
+  .elemform h5 {
+    font-size: 1rem;
+  } */
+
+/* Fix Bootstrap Print Color */
+@media print {
+    body {
+        color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+}

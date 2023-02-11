@@ -1,0 +1,101 @@
+// Grayscale Text Utilities
+.dashboard-text, .dashboard-text p {
+    font-size: 0.8rem !important;
+}
+
+.text-xs {
+    font-size: .7rem;
+}
+
+.text-md {
+    font-size: 20px;
+}
+
+.text-lg {
+    font-size: 1.875rem;
+}
+
+.text-lg {
+    font-size: 1.2rem;
+}
+
+.text-gray-100 {
+    color: $gray-100 !important;
+}
+
+.text-gray-200 {
+    color: $gray-200 !important;
+}
+
+.text-gray-300 {
+    color: $gray-300 !important;
+}
+
+.text-gray-400 {
+    color: $gray-400 !important;
+}
+
+.text-gray-500 {
+    color: $gray-500 !important;
+}
+
+.text-gray-600 {
+    color: $gray-600 !important;
+}
+
+.text-gray-700 {
+    color: $gray-700 !important;
+}
+
+.text-gray-800 {
+    color: $gray-800 !important;
+}
+
+.text-gray-900 {
+    color: $gray-900 !important;
+}
+
+.text-orange {
+    color: $orange;
+}
+
+.icon-circle {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.underline-bottom {
+    border-bottom: 1px solid black;
+    width: 100%;
+    height: 100%;
+}
+
+.underline-top {
+    border-top: 1px solid black;
+    width: 100%;
+    height: 100%;
+}
+
+.text-start {
+    text-align: left;
+}
+
+.text-end {
+    text-align: right;
+}
+
+.line-h {
+    line-height: 1.8;
+}
+
+.list-style-none {
+    list-style: none;
+}

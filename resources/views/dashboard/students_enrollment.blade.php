@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <div>
@@ -16,7 +15,7 @@
                     <label for="branches">Branches</label>
                     <select class="form-control" style="border: 1px solid #222;" id="branches" name="branches">
                         <option selected value="All">All</option>
-                        @foreach($branches as $branch)
+                        @foreach ($branches as $branch)
                             <option value="{{ $branch->branch_name }}">{{ $branch->branch_name }}</option>
                         @endforeach
                     </select>
@@ -43,7 +42,7 @@
         </div>
 
         <a class="d-none d-sm-inline-block btn btn-sm btn-orange shadow-sm" data-toggle="modal"
-           data-target="#addStudentModal" href="#" role="button">
+            data-target="#addStudentModal" href="#" role="button">
             <i class="fas fa-plus font-sm fa-sm text-white-50"></i>
             Enroll Student
         </a>
@@ -60,24 +59,24 @@
                     <div class="table-responsive">
                         <table class="table cust-datatable" width="100%" id="filtertable" cellspacing="0">
                             <thead>
-                            <tr>
-                                <th class="all">No.</th>
-                                <th class="all">Application No.</th>
-                                <th class="">Student Type</th>
-                                <th class="">LRN</th>
-                                <th class="all">First Name</th>
-                                <th class="all">Middle Name</th>
-                                <th class="all">Last Name</th>
-                                <th class="">Email</th>
-                                <th class="">Contact Number</th>
-                                <th class="">Address</th>
-                                <th class="">Department</th>
-                                <th class="">Program/Strand</th>
-                                <th class="">Major</th>
-                                <th class="">Level</th>
-                                <th class="all">Status</th>
-                                <th style="min-width: 160px;" class="all">Action</th>
-                            </tr>
+                                <tr>
+                                    <th class="all">No.</th>
+                                    <th class="all">Application No.</th>
+                                    <th class="">Student Type</th>
+                                    <th class="">LRN</th>
+                                    <th class="all">First Name</th>
+                                    <th class="all">Middle Name</th>
+                                    <th class="all">Last Name</th>
+                                    <th class="">Email</th>
+                                    <th class="">Contact Number</th>
+                                    <th class="">Address</th>
+                                    <th class="">Department</th>
+                                    <th class="">Program/Strand</th>
+                                    <th class="">Major</th>
+                                    <th class="">Level</th>
+                                    <th class="all">Status</th>
+                                    <th style="min-width: 160px;" class="all">Action</th>
+                                </tr>
                             </thead>
                             <tbody></tbody>
                         </table>
@@ -90,7 +89,6 @@
 
 
     @include('dashboard.modals.studentsEnrollmentModal')
-
 @endsection
 
 @section('extra-js')

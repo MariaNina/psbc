@@ -30,7 +30,7 @@ class LoginController extends Controller
         $user = UsersTbl::select("*")
             ->where('email', $request->email)
             ->where('is_active', 1)
-            ->with(['staff', 'student','branch'])
+            ->with(['staff', 'student', 'branch'])
             ->first();
 
         // Invalid Email
@@ -51,15 +51,15 @@ class LoginController extends Controller
 
         // Check if student
         if ($user->student()->exists() && $user->role->role_name == "Student" && !is_null($user->student->image)) {
-            $avatar = '/storage'.$user->student->image;
+            $avatar = '/storage' . $user->student->image;
         } elseif ($user->staff()->exists() && $user->role->role_name != "Student" && !is_null($user->staff->image)) {
-            $avatar = '/storage'.$user->staff->image;
+            $avatar = '/storage' . $user->staff->image;
         } else {
             $avatar = 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y';
         }
 
         // Correct Email & Password
-        if($user->student()->exists() && $user->role->role_name == "Student"){
+        if ($user->student()->exists() && $user->role->role_name == "Student") {
             $userInfo = (object)[
                 'id' => $user->id,
                 'branch' => $user->branch->branch_name,
@@ -67,12 +67,12 @@ class LoginController extends Controller
                 'full_name' => $user->full_name,
                 'email' => $user->email,
                 'salt' => $user->salt,
-                'student_id' =>$user->student->id,
+                'student_id' => $user->student->id,
                 'user_name' => $user->user_name,
                 'role' => $user->role->role_name,
                 'avatar' => $avatar,
-        ];  
-        }else{
+            ];
+        } else {
             $userInfo = (object)[
                 'id' => $user->id,
                 'branch' => $user->branch->branch_name,
@@ -80,12 +80,15 @@ class LoginController extends Controller
                 'full_name' => $user->full_name,
                 'email' => $user->email,
                 'salt' => $user->salt,
-                'staff_id' =>$user->staff->id,
+                'staff_id' => $user->staff->id,
                 'user_name' => $user->user_name,
                 'role' => $user->role->role_name,
                 'avatar' => $avatar,
             ];
         }
+
+        //auth login
+        Auth::login($user);
 
         // Assign a session
         $request->session()->put('user', $userInfo);
@@ -93,7 +96,7 @@ class LoginController extends Controller
         //log login to audit trail
         $action_taken = 'Logged In';
         $description = 'Logged In to PSBC with authentication';
-        AuditTrail::logAuditTrail( $action_taken , $description );
+        AuditTrail::logAuditTrail($action_taken, $description);
         //end log
 
         return response()->json([
@@ -110,11 +113,11 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-         //log login to audit trail
-         $action_taken = 'Logged Out';
-         $description = 'Logged Out to PSBC';
-         AuditTrail::logAuditTrail( $action_taken , $description );
-         //end log
+        //log login to audit trail
+        $action_taken = 'Logged Out';
+        $description = 'Logged Out to PSBC';
+        AuditTrail::logAuditTrail($action_taken, $description);
+        //end log
 
         session()->forget('user'); // Remove the session
 

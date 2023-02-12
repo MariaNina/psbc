@@ -7,10 +7,8 @@ use App\Models\AssessmentsTbl;
 use App\Models\BranchCollegesProgramsMajorsTbl;
 use App\Models\BranchTbl;
 use App\Models\CurriculumSubjectsTbl;
-use App\Models\CurriculumTbl;
 use App\Models\DocumentsTbl;
 use App\Models\EnrollmentTbl;
-use App\Models\Grade;
 use App\Models\GuardianTbl;
 use App\Models\LevelsTbl;
 use App\Models\ProgramMajorsTbl;
@@ -18,7 +16,6 @@ use App\Models\SchoolYearTbl;
 use App\Models\SectionsTbl;
 use App\Models\StudentsTbl;
 use App\Models\TermsTbl;
-use App\Models\UsersTbl;
 use App\Utilities\AccessRoute;
 use App\Utilities\AuditTrail;
 use App\Utilities\Helpers;
@@ -76,7 +73,8 @@ class StudentsEnrollmentController extends Controller
                     "sections_tbls.section_label",
                     "terms_tbls.term_name",
                     "school_year_tbls.school_years",
-                    "application_status_view.STATUS as app_status")
+                    "application_status_view.STATUS as app_status"
+                )
                     ->join('application_status_view', 'enrollment_tbls.application_no', '=', 'application_status_view.application_no')
                     ->join('students_tbls', 'enrollment_tbls.student_id', '=', 'students_tbls.id')
                     ->leftJoin('curriculum_tbls', 'enrollment_tbls.curriculum_id', '=', 'curriculum_tbls.id')
@@ -115,7 +113,8 @@ class StudentsEnrollmentController extends Controller
                     "terms_tbls.term_name",
                     "school_year_tbls.school_years",
                     'branch_tbls.branch_name',
-                    "application_status_view.STATUS as app_status")
+                    "application_status_view.STATUS as app_status"
+                )
                     ->join('branch_tbls', 'enrollment_tbls.branch_id', '=', 'branch_tbls.id')
                     ->join('application_status_view', 'enrollment_tbls.application_no', '=', 'application_status_view.application_no')
                     ->leftJoin('students_tbls', 'enrollment_tbls.student_id', '=', 'students_tbls.id')
@@ -156,7 +155,8 @@ class StudentsEnrollmentController extends Controller
                     "terms_tbls.term_name",
                     "school_year_tbls.school_years",
                     'branch_tbls.branch_name',
-                    "application_status_view.STATUS as app_status")
+                    "application_status_view.STATUS as app_status"
+                )
                     ->join('branch_tbls', 'enrollment_tbls.branch_id', '=', 'branch_tbls.id')
                     ->join('application_status_view', 'enrollment_tbls.application_no', '=', 'application_status_view.application_no')
                     ->leftJoin('students_tbls', 'enrollment_tbls.student_id', '=', 'students_tbls.id')
@@ -197,7 +197,8 @@ class StudentsEnrollmentController extends Controller
                     "terms_tbls.term_name",
                     "school_year_tbls.school_years",
                     'branch_tbls.branch_name',
-                    "application_status_view.STATUS as app_status")
+                    "application_status_view.STATUS as app_status"
+                )
                     ->join('branch_tbls', 'enrollment_tbls.branch_id', '=', 'branch_tbls.id')
                     ->join('application_status_view', 'enrollment_tbls.application_no', '=', 'application_status_view.application_no')
                     ->leftJoin('students_tbls', 'enrollment_tbls.student_id', '=', 'students_tbls.id')
@@ -240,7 +241,8 @@ class StudentsEnrollmentController extends Controller
                     "school_year_tbls.school_years",
                     'branch_tbls.branch_name',
                     'program_majors_tbls.description',
-                    "application_status_view.STATUS as app_status")
+                    "application_status_view.STATUS as app_status"
+                )
                     ->join('branch_tbls', 'enrollment_tbls.branch_id', '=', 'branch_tbls.id')
                     ->join('application_status_view', 'enrollment_tbls.application_no', '=', 'application_status_view.application_no')
                     ->leftJoin('students_tbls', 'enrollment_tbls.student_id', '=', 'students_tbls.id')
@@ -283,7 +285,8 @@ class StudentsEnrollmentController extends Controller
                     "school_year_tbls.school_years",
                     'branch_tbls.branch_name',
                     'program_majors_tbls.description',
-                    "application_status_view.STATUS as app_status")
+                    "application_status_view.STATUS as app_status"
+                )
                     ->join('branch_tbls', 'enrollment_tbls.branch_id', '=', 'branch_tbls.id')
                     ->join('application_status_view', 'enrollment_tbls.application_no', '=', 'application_status_view.application_no')
                     ->leftJoin('students_tbls', 'enrollment_tbls.student_id', '=', 'students_tbls.id')
@@ -313,12 +316,12 @@ class StudentsEnrollmentController extends Controller
                         $button .= '<span class="actionCust" title="view student assessment form" ><a class="" href="/assessmentForm?i=' . base64_encode($EnrollmentTbl->assessment_id) . '"><i class="fas fa-print"></i></a></span>';
                     }
 
-                    $button .= '<span class="actionCust viewDocument" title="view student documents" data-id="' . $EnrollmentTbl->e_student_id . '"><a class=""><i class="fas fa-edit"></i></a></span>';
+                    $button .= '<span class="actionCust viewDocument" title="view student documents" data-id="' . $EnrollmentTbl->e_student_id . '" data-eid="' . $EnrollmentTbl->id . '" ><a class=""><i class="fas fa-edit"></i></a></span>';
                     //button update
                     // $button .= '<span class="actionCust editData" title="update student details" data-id="' . md5($EnrollmentTbl->id) . '"><a class=""><i class="fas fa-edit"></i></a></span>';
 
                     //button deactivate activate
-                    $button .= '<span class="actionCust ' . $is_approved . '"  title="' . $is_approved . ' students application" data-id="' . md5($EnrollmentTbl->id) . '" ><a class="delete-btn"><i class="fa fa-power-off"></i></a></span>';
+                    $button .= '<span class="actionCust ' . $is_approved . '"  title="' . $is_approved . ' students application" data-id="' . md5($EnrollmentTbl->id) . '"  ><a class="delete-btn"><i class="fa fa-power-off"></i></a></span>';
 
 
                     return $button; // Return Button
@@ -329,13 +332,13 @@ class StudentsEnrollmentController extends Controller
                 ->rawColumns(['No', 'action']) // Set to raw column to say to datatable that column 'action' is a HTML raw that need to be rendered as HTML5
                 ->make(true);
         }
-        $current_school_id = Helpers::currentSchoolYear('id');//place here selected school year
-        $current_school_year = Helpers::currentSchoolYear('school_years');//place here selected school year
+        $current_school_id = Helpers::currentSchoolYear('id'); //place here selected school year
+        $current_school_year = Helpers::currentSchoolYear('school_years'); //place here selected school year
         $enrollees = EnrollmentTbl::select('student_id')->where('school_year_id', $current_school_id);
         $data['permissions'] = AccessRoute::user_permissions(session('user')->id);
         $data['terms'] = TermsTbl::where('is_active', 1)->get();
         // $data['students'] = StudentsTbl::whereNotIn('id', $enrollees)->get();
-         $data['students'] = StudentsTbl::all();
+        $data['students'] = StudentsTbl::all();
         // $data['levels'] = LevelsTbl::where(array('student_dept' => $student_department,'is_active'=> 1))->get();
         $data['branches'] = BranchTbl::all();
         $data['school_year'] = $current_school_year;
@@ -362,7 +365,8 @@ class StudentsEnrollmentController extends Controller
                 'program_majors_tbls.description as description',
                 'program_majors_tbls.student_department as student_department',
                 'programs_tbls.program_code as program_code',
-                'programs_tbls.program_name as program_name')
+                'programs_tbls.program_name as program_name'
+            )
                 ->join('programs_tbls', 'program_majors_tbls.program_id', '=', 'programs_tbls.id')
                 ->where('programs_tbls.is_active', 1)
                 ->where('student_department', $department)
@@ -397,14 +401,14 @@ class StudentsEnrollmentController extends Controller
             $enrollment->remarks = $request->remarks;
             $enrollment->subject_ids = json_encode($request->subjects);
             $enrollment->is_approved = 1;
-            if($enrollment->save()){
+            if ($enrollment->save()) {
                 //log to audit trail
                 $new_data = $enrollment;
                 $action_taken = 'Create';
                 $description = 'Add Student to Enrollment';
-                AuditTrail::logAuditTrail( $action_taken , $description , $new_data);
+                AuditTrail::logAuditTrail($action_taken, $description, $new_data);
                 //end log
-           }
+            }
 
             // $is_grade_exist = Grade::where('enrollment_id',$request->enrollment_id);
 
@@ -428,20 +432,19 @@ class StudentsEnrollmentController extends Controller
             $assessment->status = 'pending';
             $assessment->is_active = 0;
             $assessment->enrollment_id = $enrollment->id;
-            if($assessment->save()){
+            if ($assessment->save()) {
                 //log to audit trail
                 $new_data = $assessment;
                 $action_taken = 'Create';
                 $description = 'Add Student to Assessment';
-                AuditTrail::logAuditTrail( $action_taken , $description , $new_data);
+                AuditTrail::logAuditTrail($action_taken, $description, $new_data);
                 //end log
-           }
+            }
 
             return response()->json(['msg' => 'Successfully Saved', 'status' => 'success']);
         } else {
             return response()->json(['msg' => 'Subjects cannot be empty', 'status' => 'error']);
         }
-
     }
 
     private function createApplicationNo($stud_dept)
@@ -452,23 +455,23 @@ class StudentsEnrollmentController extends Controller
 
         switch ($stud_dept) {
 
-            case('Elementary'):
+            case ('Elementary'):
                 $dept = 'ELEM'; //elementary
                 break;
 
-            case('JHS'):
+            case ('JHS'):
                 $dept = 'JHS'; //junior high school
                 break;
 
-            case('SHS'):
+            case ('SHS'):
                 $dept = 'SHS'; //senior high school
                 break;
 
-            case('College'):
+            case ('College'):
                 $dept = 'COL'; //college
                 break;
 
-            case('Graduate Studies'):
+            case ('Graduate Studies'):
                 $dept = 'GS'; //graduate studies
                 break;
 
@@ -495,16 +498,6 @@ class StudentsEnrollmentController extends Controller
         return $application_no;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -515,14 +508,17 @@ class StudentsEnrollmentController extends Controller
     public function getStudentData(Request $request)
     {
         //
-        $id = $request->id;
+        $id = $request->id; //student id
+        $enrollment_id = $request->enrollment_id; //enrollment id
         $data['student_details'] = StudentsTbl::select('students_tbls.*', 'guardian_tbls.first_name AS g_first_name', 'guardian_tbls.middle_name AS g_middle_name', 'guardian_tbls.last_name AS g_last_name', 'guardian_tbls.address AS g_address', 'guardian_tbls.contact_number AS g_contact_number', 'users_tbls.user_name')
             ->leftJoin('guardian_tbls', 'guardian_tbls.id', '=', 'students_tbls.guardian_id')
             ->leftJoin('users_tbls', 'users_tbls.id', '=', 'students_tbls.user_id')
             ->where('students_tbls.id', $id)->get();
 
         $enrollment = EnrollmentTbl::select('enrollment_tbls.*',)
-            ->where('enrollment_tbls.student_id', $id)->orderBy('id', 'desc');
+            ->where('enrollment_tbls.student_id', $id)
+            ->where('enrollment_tbls.id', $enrollment_id)
+            ->orderBy('id', 'desc');
         $enrollment_id = $enrollment->first()->id;
         $curriculum_id = $enrollment->first()->curriculum_id;
         $branch_id = $enrollment->first()->branch_id;
@@ -533,7 +529,8 @@ class StudentsEnrollmentController extends Controller
         $data['curriculums'] = BranchCollegesProgramsMajorsTbl::select(
             "curriculum_tbls.id as id",
             "programs_tbls.program_name as pname",
-            "majors_tbls.major_name as mname")
+            "majors_tbls.major_name as mname"
+        )
             ->leftJoin('program_majors_tbls', 'branch_colleges_programs_majors_tbls.program_major_id', '=', 'program_majors_tbls.id')
             ->leftJoin('programs_tbls', 'program_majors_tbls.program_id', '=', 'programs_tbls.id')
             ->leftJoin('majors_tbls', 'program_majors_tbls.major_id', '=', 'majors_tbls.id')
@@ -659,7 +656,6 @@ class StudentsEnrollmentController extends Controller
                 $data['student_department'] = $request->student_department;
                 $data['is_active'] = 0;
                 $assessment = AssessmentsTbl::where('enrollment_id', $request->enrollment_id)->update($data);
-
             } else {
 
                 $assessment = new AssessmentsTbl();
@@ -699,9 +695,9 @@ class StudentsEnrollmentController extends Controller
         $html = '<h5>Documents</h5>
                     <ul>';
         foreach ($documents as $row) {
-            if($row->document_file != ""){
-            $destinationPath = asset('storage/student_docs/'.$row->document_file);
-            $html .= '<li>
+            if ($row->document_file != "") {
+                $destinationPath = asset('storage/student_docs/' . $row->document_file);
+                $html .= '<li>
                         <td><a href="' . $destinationPath . '" target="_blank">' . $row->document_name . '</a></td>
                       </li>';
             }
@@ -720,14 +716,16 @@ class StudentsEnrollmentController extends Controller
         if ($assessment->count() > 0) {
             $subject_ids = json_decode($assessment->first()->subject_ids);
         }
-        $subjects = CurriculumSubjectsTbl::select('curriculum_subjects_tbls.id',
+        $subjects = CurriculumSubjectsTbl::select(
+            'curriculum_subjects_tbls.id',
             'curriculum_subjects_tbls.subject_id',
             'subject_tbls.lect_unit',
             'subject_tbls.lab_unit',
             'subject_tbls.subject_code',
             'subject_tbls.subject_name',
             DB::raw("CONCAT(subject_tbls_2.subject_code,' - ',subject_tbls_2.subject_name) AS preReqSubjectName"),
-            "curriculum_subjects_tbls.id")
+            "curriculum_subjects_tbls.id"
+        )
             ->leftJoin('subject_tbls', 'curriculum_subjects_tbls.subject_id', '=', 'subject_tbls.id')
             ->leftJoin('subject_tbls AS subject_tbls_2', 'curriculum_subjects_tbls.prerequisite_subject_id', '=', 'subject_tbls_2.id')
             ->where('curriculum_subjects_tbls.is_active', 1)
@@ -776,14 +774,16 @@ class StudentsEnrollmentController extends Controller
         $cur_id = $request->curriculum;
 
 
-        $subjects = CurriculumSubjectsTbl::select('curriculum_subjects_tbls.id',
+        $subjects = CurriculumSubjectsTbl::select(
+            'curriculum_subjects_tbls.id',
             'curriculum_subjects_tbls.subject_id',
             'subject_tbls.lect_unit',
             'subject_tbls.lab_unit',
             'subject_tbls.subject_code',
             'subject_tbls.subject_name',
             DB::raw("CONCAT(subject_tbls_2.subject_code,' - ',subject_tbls_2.subject_name) AS preReqSubjectName"),
-            "curriculum_subjects_tbls.id")
+            "curriculum_subjects_tbls.id"
+        )
             ->leftJoin('subject_tbls', 'curriculum_subjects_tbls.subject_id', '=', 'subject_tbls.id')
             ->leftJoin('subject_tbls AS subject_tbls_2', 'curriculum_subjects_tbls.prerequisite_subject_id', '=', 'subject_tbls_2.id')
             ->where('curriculum_subjects_tbls.is_active', 1)
@@ -835,14 +835,16 @@ class StudentsEnrollmentController extends Controller
         if ($assessment->count() > 0) {
             $subject_ids = json_decode($assessment->first()->subject_ids);
         }
-        $subjects = CurriculumSubjectsTbl::select('curriculum_subjects_tbls.id',
+        $subjects = CurriculumSubjectsTbl::select(
+            'curriculum_subjects_tbls.id',
             'curriculum_subjects_tbls.subject_id',
             'subject_tbls.lect_unit',
             'subject_tbls.lab_unit',
             'subject_tbls.subject_code',
             'subject_tbls.subject_name',
             DB::raw("CONCAT(subject_tbls_2.subject_code,' - ',subject_tbls_2.subject_name) AS preReqSubjectName"),
-            "curriculum_subjects_tbls.id")
+            "curriculum_subjects_tbls.id"
+        )
             ->leftJoin('subject_tbls', 'curriculum_subjects_tbls.subject_id', '=', 'subject_tbls.id')
             ->leftJoin('subject_tbls AS subject_tbls_2', 'curriculum_subjects_tbls.prerequisite_subject_id', '=', 'subject_tbls_2.id')
             ->where('curriculum_subjects_tbls.is_active', 1)
@@ -906,5 +908,4 @@ class StudentsEnrollmentController extends Controller
 
         return view('dashboard.student.schedule', compact('permissions', 'user'));
     }
-
 }

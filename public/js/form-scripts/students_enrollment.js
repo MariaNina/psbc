@@ -155,7 +155,8 @@ $(document).ready(function() {
     }
     $('body').on('click', '.viewDocument', function(e) {
             id = $(this).data('id');
-            console.log(id)
+            let enrollment_id = $(this).data('eid');
+            // console.log(enrollment_id)
             let _token = $('meta[name="csrf-token"]').attr('content');
 
             $.ajax({
@@ -163,10 +164,11 @@ $(document).ready(function() {
                 type: "POST",
                 data: {
                     id: id,
+                    enrollment_id: enrollment_id,
                     _token: _token
                 },
                 success: function(result) {
-                    console.log(result.docs)
+                    // console.log(result.docs)
                     $('#viewStudentModal').modal('show');
                     // students
                     $('#student_id').val(result.student_details[0].id);
@@ -287,7 +289,7 @@ $(document).ready(function() {
                     $('#view_docs').html(result.docs);
                     $('#subject_tbl').html(result.subjects);
 
-                    console.log(app_status)
+                    // console.log(app_status)
                     if (app_status == 'Enrolled') {
                         $(".btn-finish").addClass("disabled");
                     } else {
@@ -333,7 +335,7 @@ $(document).ready(function() {
                 data: form_data
             })
             .done(function(response) {
-                console.log(response)
+                // console.log(response)
                 Swal.fire(response.status, response.msg, response.status);
                 // alert+response.status(response.msg) //calls function alertSuccess in public\js\main.js
                 $("#myForm")[0].reset();
@@ -369,7 +371,7 @@ $(document).ready(function() {
                 alertSuccess('Created') //calls function alertSuccess in public\js\main.js  
             })
             .done(function(response) {
-                console.log(response)
+                // console.log(response)
                 Swal.fire(response.status, response.msg, response.status); //calls function alertSuccess in public\js\main.js
                 $('#add_student_id').val();
                 $('#addEnrolleeForm')[0].reset();

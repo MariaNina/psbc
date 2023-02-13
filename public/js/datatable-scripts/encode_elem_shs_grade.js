@@ -34,7 +34,7 @@ $(function(){
                 },
             {
                 data: "student_name",
-                name: "students_tbls.last_name",
+                name: "student_name",
             },
             {
                 data: "action",

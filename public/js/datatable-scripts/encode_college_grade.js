@@ -34,9 +34,7 @@ $(function(){
                 },
             {
                 data: "student_name",
-                name: "students_tbls.last_name",
-                orderable: true, 
-                searchable: true,
+                name: "student_name",
                 
             },
             {
